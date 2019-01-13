@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+        if(s.length() != t.length())
+            return false;
+        
+        char[] str1 = s.toCharArray();
+        int[] valcheck = new int[128];
+        int counter = 0;
+        for(int i=0; i<str1.length ;i++)
+        {
+            int index = (int)str1[i];
+            valcheck[index] = valcheck[index] + 1;
+        }
+        char[] str2 = t.toCharArray();
+        for(int i=0;i<str2.length;i++)
+        {
+            int index = (int)str2[i];
+            valcheck[index] = valcheck[index]-1;
+            if(valcheck[index] < 0)
+                return false;
+        }
+        
+        return true;
+    }
+}
