@@ -1,0 +1,68 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        String window;
+       // StringBuilder window = new StringBuilder();
+        if(!s.isEmpty())
+         window = Character.toString(s.charAt(0));
+        else
+            return 0;
+        
+        int maxLength=0;
+        
+        if(s == null || s.length() == 0)
+        {
+            return 0;
+        }
+        
+        if(s.length() == 1)
+        {
+            return 1;
+        }
+        
+            
+        
+        //window.append(s.charAt(0));
+        //window  += s.charAt(0);
+        
+        for(int i=1 ; i<s.length(); i++)
+        {
+            if(window.contains(Character.toString(s.charAt(i))))
+            {   
+               //ystem.out.println(Character.toString(s.charAt(i)));
+                int position = window.indexOf(s.charAt(i));
+                String temp = window.substring(position+1,window.length());
+                window = temp;
+                
+                //StringBuilder window1 = new StringBuilder(temp);
+                //String s = sb.toString();
+                
+                //window1.append(s.charAt(i)); 
+            //  System.out.println("valsf" +window);
+                window = window + s.charAt(i);
+                //stem.out.println("val of" +window);
+               //ystem.out.println("msf" +maxLength);
+                if(maxLength <= window.length())
+                {
+                    maxLength = window.length();
+             //    System.out.println("value of max is "+maxLength);
+                }
+            }
+            
+            else
+            {
+                //window.append(s.charAt(i));
+                window  += s.charAt(i);
+                //xLength = window.length();
+                if(maxLength <= window.length())
+                {
+                    maxLength = window.length();
+                // System.out.println("value of max is "+maxLength);
+                }
+                //stem.out.println("value of max iss "+maxLength+" value of window   " + window);
+            }
+        }
+          
+        return maxLength;
+             
+    }
+}
