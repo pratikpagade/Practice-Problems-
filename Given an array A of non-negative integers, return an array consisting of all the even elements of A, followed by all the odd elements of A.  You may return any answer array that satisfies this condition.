@@ -1,0 +1,23 @@
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        
+        int e = 0 ;
+        int o = A.length-1;
+        int temp;
+        
+        while(e<o){
+                
+                if(A[e]%2==0)e++;
+                else
+                {
+                    temp=A[e];
+                    A[e]=A[o];
+                    A[o]=temp;
+                    o--;
+                }
+        }
+        
+        return A;
+        
+    }
+}
