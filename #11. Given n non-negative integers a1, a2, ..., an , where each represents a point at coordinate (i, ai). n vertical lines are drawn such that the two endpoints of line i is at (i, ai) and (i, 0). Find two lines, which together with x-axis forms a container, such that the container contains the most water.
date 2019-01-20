@@ -1,0 +1,33 @@
+class Solution {
+    public int maxArea(int[] height) {
+        
+        int Area = 0;
+        int currArea = 0;
+        for(int i=0,j=height.length-1; i<=j;)
+        {
+            int tempcompare = Integer.compare(height[i],height[j]);
+            if(tempcompare < 0)
+            {
+                int heig = height[i];
+                int length = j-i;
+                currArea = heig * length;
+                i++;
+            }
+            else 
+            {
+                int heig = height[j];
+                int length = j-i;
+                currArea = heig * length;
+                j--;
+            }
+            if(Area <= currArea)
+            {
+                Area = currArea;
+            }
+            
+        }
+        
+        return Area;
+        
+    }
+}
