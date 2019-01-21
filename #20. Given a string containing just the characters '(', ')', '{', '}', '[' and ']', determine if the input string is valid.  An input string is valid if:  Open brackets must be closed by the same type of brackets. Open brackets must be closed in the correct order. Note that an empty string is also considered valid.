@@ -1,0 +1,34 @@
+ class Solution{      
+  public boolean isValid(String s) { 
+
+if(s.equals(""))                                                      
+           return true;                                                                                                                                                                     
+       char[] paranthesis = s.toCharArray();                                                                                                                     
+       Stack<Character> charStack= new Stack<Character>();                                                                                     
+                                  
+           if((paranthesis[0]=='[' || paranthesis[0]=='{' || paranthesis[0]=='(') &&(paranthesis.length!=1)&&(paranthesis.length%2==0))                                                     
+               charStack.push(paranthesis[0]);                                                                                                                   
+           else                                                                                                                                                  
+               return false;                                                                                                                                                                                             
+           for(int i=0;i<paranthesis.length-1;i++)                                                                                                                 
+           {   
+               if(charStack.empty()==true)
+               {
+                   i=i+1;
+                  charStack.push(paranthesis[i]);
+                   
+               }   
+               
+           if(charStack.peek()=='[' && paranthesis[i+1]==']' || charStack.peek()=='{' && paranthesis[i+1]=='}' || charStack.peek()=='(' && paranthesis[i+1]==')')
+           	charStack.pop();                                                                                                                                  
+           else                                                                                                                                                  
+           	charStack.push(paranthesis[i+1]);                                                                                                                 
+           if(charStack.empty()==true && (i+1)==paranthesis.length)                                                                                              
+           		break;                                                                                                                                        
+           } 
+      if(charStack.empty()==true)
+          return true;
+      else
+          return false;
+  }
+ }             
