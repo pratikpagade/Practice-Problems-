@@ -1,0 +1,35 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+        
+        int h = matrix[0].length;
+        System.out.println(h);
+        
+        for(int layer=0;layer<h/2;layer++)
+        {
+            int first = layer;
+            int last = h - layer - 1;
+            
+            for(int i = first ; i<last ; i++)
+            {
+                int offset = i - first;
+                    //save top
+                    int temp = matrix[first][i];
+                    //left-top
+                    
+                matrix[first][i] = matrix[last-offset][first];    
+                
+                    //bottom-left
+                    
+                matrix[last-offset][first] = matrix[last][last-offset];    
+                    //bottom-right
+                    
+                 matrix[last][last-offset] = matrix[i][last];  
+                
+            
+                    //right-top
+                
+                matrix[i][last] = temp;
+            }
+        }
+    }
+}
