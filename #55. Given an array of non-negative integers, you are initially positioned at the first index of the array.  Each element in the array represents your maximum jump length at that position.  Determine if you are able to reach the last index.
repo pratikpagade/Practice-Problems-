@@ -1,0 +1,26 @@
+class Solution {
+    public boolean canJump(int[] nums) {
+        
+        int index = nums.length-1;
+        boolean flag = true;
+        for(int i=nums.length-2; i>=0; i--)
+        {
+            if(i+nums[i] >= index)
+            {
+                flag = true;
+                index = i;
+                
+            }
+            else
+            {
+                flag = false;
+            }
+        }
+        
+        if(flag == true)
+                return true;
+        else
+            return false;
+        
+    }
+}
