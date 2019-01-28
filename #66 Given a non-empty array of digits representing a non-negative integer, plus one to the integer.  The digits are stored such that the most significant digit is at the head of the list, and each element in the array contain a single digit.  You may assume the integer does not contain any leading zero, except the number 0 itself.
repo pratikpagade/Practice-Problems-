@@ -1,0 +1,42 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        
+        int carry = 0;
+        //int temp = 0;
+        for(int j=digits.length-1;j>=0;j--)
+        {
+              int temp = 0;
+            if(j==digits.length-1)
+              temp = digits[j] + 1;
+            else
+            {
+                 temp = digits[j] + carry;
+                  carry = 0;
+            }
+            if(temp < 10)
+            {
+                digits[j] = temp;
+                return digits;
+            }   
+            else
+            {
+                int assign = temp%10;
+                digits[j] = assign;
+                carry = temp/10;
+            }
+        } 
+        
+        if(carry>0)
+        {
+            int[] arr = new int[digits.length+1];
+            arr[0] = carry;
+            for (int i=0; i<digits.length; i++) 
+                 arr[i+1] = digits[i]; 
+            return arr;
+        }
+        else
+        {
+            return digits;
+        }
+    }
+}
