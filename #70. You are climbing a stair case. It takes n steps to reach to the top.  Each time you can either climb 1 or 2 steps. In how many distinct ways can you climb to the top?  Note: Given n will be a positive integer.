@@ -1,0 +1,25 @@
+class Solution {
+    public int climbStairs(int n) {
+        
+        
+        if(n<=1)
+            return 1;
+       
+        int i=2;
+        int nextval=0;
+        int prev = 1;
+        int prev1 = 1;
+        while(i<=n)
+        {
+            nextval = prev + prev1;
+            
+            prev1 = prev;
+            
+            prev =nextval;
+            
+            i++;
+        }
+        
+        return nextval;
+    }
+}
