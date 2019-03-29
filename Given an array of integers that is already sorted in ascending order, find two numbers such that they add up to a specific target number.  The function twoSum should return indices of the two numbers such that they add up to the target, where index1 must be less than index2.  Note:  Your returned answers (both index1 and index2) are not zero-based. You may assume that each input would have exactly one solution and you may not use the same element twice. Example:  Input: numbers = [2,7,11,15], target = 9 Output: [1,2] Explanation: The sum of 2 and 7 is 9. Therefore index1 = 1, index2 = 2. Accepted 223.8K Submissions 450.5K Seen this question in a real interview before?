@@ -1,0 +1,30 @@
+class Solution {
+    public int[] twoSum(int[] a, int target) {
+        
+        int[] indices = new int[2];
+        
+        for(int i=0,j=a.length-1;i<j;)
+        {
+            
+            
+                if((a[i] + a[j]) == target)
+                {
+                    indices[0] = i+1;
+                    indices[1] = j+1;
+                    break;
+                }
+                else if((a[i] + a[j]) > target)
+                {
+                    j--;
+                }
+                else{
+                    i++;
+                }
+            
+            
+        }
+        return indices;
+       
+        
+    }
+}
