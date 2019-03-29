@@ -1,0 +1,32 @@
+class Solution {
+    public String reverseWords(String s) {
+     
+       String st = s.trim();
+       StringBuilder sb = new StringBuilder();
+       StringBuilder retSb = new StringBuilder();
+       Boolean flag = false;
+       for(int i = st.length()-1; i>=0 ;  i--)
+       {
+           if(st.charAt(i) != ' ')
+           {
+               if(flag == false)
+                 sb.toString().trim();
+                 sb.append(st.charAt(i));
+                 flag = true;
+          }        
+            if((st.charAt(i) == ' ' && flag == true) ||( i == 0 && flag == true))
+          {
+              retSb.append(sb.reverse());
+              retSb.append(" ");
+               sb.setLength(0);
+               flag = false;
+          }    
+       }
+        return retSb.toString().trim();
+        
+        
+        
+    }
+    
+   
+}
